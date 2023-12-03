@@ -1,20 +1,18 @@
 <template>
   <div id="app">
 
-  
-    <tutorial-view></tutorial-view>
-    
-
+    <menu-view></menu-view>
   </div>
 </template>
 
 <script>
-import TutorialView from './views/Tutorial/TutorialView.vue';
-
+import MenuView from './views/menu/MenuView.vue';
 
 
 export default {
-  components: { TutorialView },
+  components: {
+    MenuView,
+  },
   name: "app"
 };
 </script>

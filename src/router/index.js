@@ -10,7 +10,21 @@ const routes =   [
     alias: "/tutorials",
     name: "tutorials",
     component: () => import("@/views/Tutorial/TutorialView")
+  },
+  {
+    path: "/tutorials",
+    alias: "/tutorials",
+    name: "tutorials",
+    component: () => import("@/views/Tutorial/TutorialView")
+  },
+  {
+    path: "/emp",
+    alias: "/emp",
+    name: "emp",
+    component: () => import("@/views/Emp/EmpView")
   }
+
+
 ]
 const router = new VueRouter({
   mode: "history",
