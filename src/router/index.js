@@ -22,7 +22,20 @@ const routes =   [
     alias: "/emp",
     name: "emp",
     component: () => import("@/views/Emp/EmpView")
-  }
+  },
+  {
+    path: "/register",
+    alias: "/register",
+    name: "register",
+    component: () => import("@/views/SignUp/SignUpView")
+  },
+
+  {
+    path: "/login",
+    alias: "/login",
+    name: "login",
+    component: () => import("@/views/Login/LoginView")
+  },
 
 
 ]
@@ -30,5 +43,18 @@ const router = new VueRouter({
   mode: "history",
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/login', '/register'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 export default router
